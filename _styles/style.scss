@@ -44,7 +44,7 @@
 }
 
 body {
-	background-color: #828282;
+	background: url('../_img/grid_@2X.png');
 	padding: 0;
 	margin: 0;
 	-webkit-box-sizing: border-box;
@@ -121,7 +121,7 @@ li {
 				color: #616161;
 				font-family: SegoeWPN;
 				font-size: 19px;
-				transition: .4s;
+				transition: .7s;
 				&:active {
 					position: relative;
 					top: 1px;
@@ -133,6 +133,7 @@ li {
 				&:hover, &:hover.border {
 				color: #00FFF6;
 				border-color: #00FFF6;
+				padding: 0 25px 0 45px;
 				}
 			}
 			margin: 0 20px 0 5px;
@@ -142,6 +143,90 @@ li {
 		width: 100%;
 		height: 540px;
 		position: relative;
+		.header__content {
+			display: flex;
+			flex-flow: row wrap;
+			position: absolute;
+			top: 30%;
+			left: 45%;
+			p {
+				color: #fff;
+				text-transform: uppercase;
+				line-height: 25px;
+				@include font(SegoeWPN, 21px, 100);
+				margin-top: 0;
+				opacity: .7;
+			}
+			img {
+				width: 55px;
+				height: 55px;
+				margin-right: 20px;
+			}
+		}
+		.header__mainContent {
+			display: flex;
+			flex-flow: column wrap;
+			position: absolute;
+			top: 48%;
+			left: 45%;
+			h2 {
+				margin: 0;
+				@include font(SegoeWPN, 39px, 100);
+				line-height: 36px;
+				color: #fff;
+				text-transform: uppercase;
+				opacity: .8;
+			}
+			p {
+				@include font(SegoeWPN, 17px, 100);
+				line-height: 36px;
+				color: #fff;
+				opacity: .9;
+			}
+			.myButton {
+					// display: flex;
+					// justify-content: center;
+					padding-left: 30px;
+					line-height: 45px;
+					// align-items: center;
+					text-align: center;
+					width: 145px;
+					height: 45px;
+					background-color: #54d3c3;
+					position: relative;
+					cursor: pointer;
+					color: #fff;
+					font: {
+						family: SegoeWPN;
+						size: 21px;
+						weight: 300;
+					}
+					transition: .4s;
+					&:before {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						content: "☑";
+						width: 50px;
+						height: 45px;
+						background-color: #259d8e;
+						position: absolute;
+						top: 0;
+						left: 0;
+						transition: .4s;
+					}
+					&:hover {
+						background: darken(#06ccb3,10%);
+						&:before {
+							background: darken(#259d8e, 10%);
+						}
+					}
+					&:active {
+						position: relative;
+						top: 1px;
+					}
+				}
+		}
 		.devices {
 			display: flex;
 			position: absolute;
@@ -230,6 +315,17 @@ li {
 		justify-content: center;
 		align-items: center;
 		flex-flow: column wrap;
+		h1 {
+			color: #636363;
+			line-height: 36px;
+			@include font(SegoeWPN, 41px, 300);
+		}
+		p {
+			text-align: center;
+			color: #a5a5a5;
+			@include font(OpenSans, 15px, 300);
+			line-height: 22px;
+		}
 		.content {
 			cursor: pointer;
 			position: relative;
@@ -367,6 +463,10 @@ li {
 							background: darken(#3edac6, 10%);
 						}
 					}
+					&:active {
+						position: relative;
+						top: 1px;
+					}
 				}
 			}
 		}
@@ -382,8 +482,9 @@ li {
 			flex-direction: column;
 			align-items: center;
 
-			max-width: calc(100% - 500px);
-			width: 100%;
+			// max-width: calc(100% - 500px);
+			width: 50%;
+			height: 100%;
 			h1 {
 				margin: 10px 0 0 0;
 				color: #49d7b0;
@@ -401,10 +502,14 @@ li {
 			align-items: center;
 			justify-content: center;
 
-			max-width: calc(100% - 765px);
-			width: 100%;
+			// max-width: calc(100% - 765px);
+			width: 50%;
 			height: 100%;
 			background-color: #49d7b0;
+			transition: .4s;
+			&:hover {
+				background: darken(#49d7b0, 15%);
+			}
 		}
 	}
 }
@@ -425,8 +530,30 @@ li {
 		@include font(OpenSans, 20px, 300);
 	}
 }
+// ==============================
+// scrollTop
+// ==============================
 
-
-
-
+.scrollTop {
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	background-color: #c0c0c0;
+	bottom: 40px;
+	right: 40px;
+	cursor: pointer;
+	border-radius: 50%;
+	transition: .4s;
+	color: #fff;
+	&:before {
+		content: "⬆";
+		font-size: 25px;
+		position: absolute;
+		top: 5%;
+		left: 33%;
+	}
+	&:hover {
+		background: darken(#c0c0c0 ,10%);
+	}
+}
 
