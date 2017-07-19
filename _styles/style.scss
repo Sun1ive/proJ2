@@ -4,22 +4,32 @@
 
 @font-face {
 	font-family: "OpenSans";
-	src: url("/_fonts/OpenSans-Regular.ttf");
+	src: url("../_fonts/OpenSans-Regular.ttf");
 }
 
 @font-face {
 	font-family: 'SegoeWPN';
-	src: url('/_fonts/SegoeWPN.ttf');
+	src: url('../_fonts/SegoeWPN.ttf');
 }
 
 @font-face {
 	font-family: 'StRyde';
-	src: url('/_fonts/StRyde-Regular.otf');
+	src: url('../_fonts/StRyde-Regular.otf');
 }
 @font-face {
 	font-family: 'AthenaUnicorn';
-	src: url('/_fonts/new_athena_unicode.ttf');
+	src: url('../_fonts/new_athena_unicode.ttf');
 }
+// ==============================
+// MIXINS
+// ==============================
+
+@mixin font($family, $size, $weight) {
+	font-family: $family;
+	font-size: $size;
+	font-weight: $weight;
+}
+
 
 // ==============================
 // Globals
@@ -27,7 +37,7 @@
 
 .page-wrapper {
 	max-width: 1280px;
-	max-height: 2705px;
+	// max-height: 2705px;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -210,8 +220,7 @@ li {
 	background-color: #fff;
 
 	display: flex;
-	// justify-content: center;
-	// align-items: center;
+
 	flex-flow: column wrap;
 	flex-grow: 1;
 	.wrapper {
@@ -252,21 +261,168 @@ li {
 			}
 		}
 	}
-	.secThree {
-	margin-top: 20px;
-	width: 100%;
-	background: url('/_img/layerSec3.png');
-	.bar {
+	.bg__icons {
+		display: flex;
+		width: 100%;
+		height: 175px;
+		background-color: #4FFFF1;
+		cursor: pointer;
+		margin-top: 100px;
+		.bg__icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: calc(100% / 6);
+			& {
+				background-color: #01646c;
+			}
+			&:nth-child(2) {
+				background-color: #097b84;
+			}
+			&:nth-child(3) {
+				background-color: #118f99;
+			}
+			&:nth-child(4) {
+				background-color: #1da0aa;
+			}
+			&:nth-child(5) {
+				background-color: #29b7c2;
+			}
+			&:nth-child(6){
+				background-color: #3ccad5;
+			}
+		}
+	}
+	.bg__sections {
+		.bg__section {
+			display: flex;
+			width: 100%;
+			height: 500px;
+			flex-flow: row nowrap;
+			img, .content {
+				width: 50%;
+				align-self: center;
+				align-content: center;
+			}
+			img {
+				margin-left: 50px;
+			}
+			.content {
+				margin-left: 20px;
+				display: flex;
+				flex-direction: column;
+				h1 {
+					color: #fff;
+					line-height: 36px;
+					text-transform: uppercase;
+					margin-top: -50px;
+					font: {
+						family: SegoeWPN;
+						size: 31px;
+					}
+				}
+				p {
+					color: #fff;
+					margin: -10px 0 25px 0;
+					line-height: 36px;
+					font: {
+						family: SegoeWPN;
+						size: 17px;
+						weight: 300;
+					}
+				}
+				.myButton {
+					display: flex;
+					justify-content: center;
+					padding-left: 30px;
+					align-items: center;
+					width: 145px;
+					height: 45px;
+					background-color: #06ccb3;
+					position: relative;
+					cursor: pointer;
+					color: #fff;
+					font: {
+						family: SegoeWPN;
+						size: 21px;
+						weight: 300;
+					}
+					transition: .4s;
+					&:before {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						content: "☑";
+						width: 50px;
+						height: 45px;
+						background-color: #3edac6;
+						position: absolute;
+						top: 0;
+						left: 0;
+						transition: .4s;
+					}
+					&:hover {
+						background: darken(#06ccb3,10%);
+						&:before {
+							background: darken(#3edac6, 10%);
+						}
+					}
+				}
+			}
+		}
+	}
+	.last__content {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		li {
-			align-content: center;
-			width: calc(100% / 6);
-			// width: 213px;
-			margin-left: 40px;
+		width: 100%;
+		height: 525px;
+		.first__content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			max-width: calc(100% - 500px);
+			width: 100%;
+			h1 {
+				margin: 10px 0 0 0;
+				color: #49d7b0;
+				@include font(SegoeWPN, 201px, bold);
+			}
+			p {
+				margin: 0;
+				color: #49d7b0;
+				@include font(OpenSans, 74px, 500);
 			}
 		}
+		.second__content {
+			 display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			max-width: calc(100% - 765px);
+			width: 100%;
+			height: 100%;
+			background-color: #49d7b0;
+		}
+	}
+}
+
+// ==============================
+// Footer
+// ==============================
+.footer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid rgba(192,192,192, .3);
+	height: 100px;
+	background-color: #fff;
+	a {
+		color: #c0c0c0;
+		@include font(OpenSans, 20px, 300);
 	}
 }
 
@@ -274,38 +430,3 @@ li {
 
 
 
-
-
-	// section {
-	// 	display: flex;
-	// 	width: 100%;
-	// 	height: 10%;
-	// 	cursor: pointer;
-	// 	position: relative;
-	// 	.iphoneAbout {
-	// 		position: absolute;
-	// 		top: 4%;
-	// 		left: 37%;
-	// 	}
-	// 	&:before {
-	// 		position: absolute;
-	// 		top: 12%;
-	// 		left: 26%;
-	// 		font-family: AthenaUnicorn;
-	// 		line-height: 54px;
-	// 		font-weight: 300;
-	// 		color: #fff;
-	// 		font-size: 94px;
-	// 		content: "APP"
-	// 	}
-	// 	&:after {
-	// 		position: absolute;
-	// 		top: 15%;
-	// 		left: 22%;
-	// 		font-family: AthenaUnicorn;
-	// 		line-height: 54px;
-	// 		color: #fff;
-	// 		font-size: 44px;
-	// 		content: "Of the year"
-	// 	}
-	// }

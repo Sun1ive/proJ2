@@ -51,6 +51,22 @@ $(function () {
 	});
 
 
+	$(".bg__icon").on('click',function (e) {
+		var that = $(this);
+		var devArrs = $(this).attr("data-tab"); 
 
+		var tabBody = $('.bg__section');
+
+		console.log(tabBody);
+		console.log(this);
+
+        for (var i = 0; i < tabBody.length; i++) {
+            if (devArrs == i) {
+                $(tabBody[i]).css("display", "flex");
+            } else {
+            	$(tabBody[i]).css("display", "none");
+            }
+       	 }
+	});
 
 });
