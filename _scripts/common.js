@@ -1,41 +1,4 @@
 $(function () {
-	// MOUSEON
-// 	$("a").on("mouseover", function (e) {
-// 	let that = this;
-
-// 	$(that).animate({
-// 		paddingLeft: "+=50%",
-// 		paddingRight: "+=50%",
-// 	}, 500, function(){
-// 		$(that).css({
-// 			"color": "#00FFF6",
-// 			"border-color": "#00FFF6"
-// 		});
-// 	});
-
-// });
-
-
-// // MOUSELEAVE
-// 	$("a").on("mouseleave", function (e) {
-// 	let that = this;
-
-// 		$(that).removeAttr("style");
-
-// 	// $(this).stop().animate({
-// 	// 	opacity: 1,
-// 	// 	paddingLeft: "0",
-// 	// 	paddingRight: "0",
-// 	// }, 500, function(){
-// 	// 	$(this).css({
-// 	// 		"color": "#616161",
-// 	// 		"border-color": "#616161"
-// 	// 	});
-// 	// });
-
-// 	});
-
-
 	$(".device").on('click', function (e) {
 		var that = $(this);
 		var devArrs = $(this).attr("data-tab"); 
@@ -50,7 +13,37 @@ $(function () {
 		}
 	});
 
+	$(".bg__icon").on('click',function (e) {
+		var that = $(this);
+		var devArrs = $(this).attr("data-tab"); 
+
+		var tabBody = $('.bg__section');
+
+		console.log(tabBody);
+		console.log(this);
+
+        for (var i = 0; i < tabBody.length; i++) {
+            if (devArrs == i) {
+                $(tabBody[i]).css("display", "flex");
+            } else {
+            	$(tabBody[i]).css("display", "none");
+            }
+       	 }
+	});
 
 
+//================
+//scrollTop
+//================
+});
+$(window).on("load",function() {
+	let windowHeight = $(document).height();
+	let speedStep = 2;
+	let timeScrolling = windowHeight / speedStep;
 
+	$(".scrollTop").click(function(event) {
+		$("html, body").animate({
+			scrollTop: 0
+		}, timeScrolling);
+	});
 });
